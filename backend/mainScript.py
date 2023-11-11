@@ -50,3 +50,4 @@ with column_dest:
          
 
 #object label, points, where it belonds
+
