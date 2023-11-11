@@ -4,12 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Text } from 'react-native';
 
 // Home screen component
-const Home = () => {
+const RewardsPage = () => {
   return (
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
-      Home
+      Login
     </Text>
   );
 };
 
-export default Home;
+export default RewardsPage;

@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Text } from 'react-native';
 
 // Home screen component
-const Camera = () => {
+const CameraPage = () => {
   return (
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
       Camera
@@ -12,4 +12,4 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default CameraPage;
