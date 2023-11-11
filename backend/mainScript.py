@@ -3,8 +3,6 @@ import sqlite3
 
 number = 9
 
-base="dark"
-
 db = sqlite3.connect("points.db")
 st.markdown('<div style="text-align: center;"><h1>Andrew Tate Simulator</h1></div>', unsafe_allow_html = True)
 st.divider()
