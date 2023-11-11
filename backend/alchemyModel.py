@@ -23,9 +23,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-def insert(db: Session, name : str, UCID: str, hashed_password: str):
-    new_user = Points(name = name, UCID = UCID, hashed_password=hashed_password, points = 0)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
