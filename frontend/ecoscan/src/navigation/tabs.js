@@ -1,8 +1,8 @@
 import{ createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Home from '../screens/Home';
-import Camera from '../screens/Camera';
-import Rewards from '../screens/Rewards';
+import HomePage from '../screens/HomePage';
+import CameraPage from '../screens/CameraPage';
+import RewardsPage from '../screens/RewardsPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -10,10 +10,9 @@ const Tab = createBottomTabNavigator();
 const Tabs = ()=>{
     return(
         <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home}/>
-            <Tab.Screen name="Camera" component={Camera}/>
-            <Tab.Screen name="Rewards" component={Rewards}/>
-
+            <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
+            <Tab.Screen name="Camera" component={CameraPage} options={{ headerShown: false }}/>
+            <Tab.Screen name="Rewards" component={RewardsPage} options={{ headerShown: false }}/>
         </Tab.Navigator>
     );
 }

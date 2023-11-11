@@ -1,15 +1,19 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Text } from 'react-native';
-
+import { View,Text } from 'react-native';
+import Header from '../components/Header';
 // Home screen component
-const Home = () => {
+const CameraPage = () => {
   return (
+    <View>
+      <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
-      Home
-    </Text>
+      Camera
+      </Text>
+    </View>
+
   );
 };
 
-export default Home;
+export default CameraPage;
