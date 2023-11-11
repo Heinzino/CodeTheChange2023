@@ -4,7 +4,6 @@ import sqlite3
 number = 9
 lol = [1, 2, 8, 4, 5]
 
-
 st.markdown('<div style="text-align: center;"><h1>Eco Scanner</h1></div>', unsafe_allow_html = True)
 st.divider()
 
@@ -57,3 +56,4 @@ def testLoop():
          
 
 #object label, points, where it belonds
+st.camera_input("Capture Image")
