@@ -18,9 +18,6 @@ with column_object:
 
 with column_points:
     st.markdown('<div style="text-align: center;"><h3>Points</h3></div>', unsafe_allow_html=True)
-    pointsEarned = 5
-    st.markdown('<div style="text-align: center;">Congratulations! You Have Earned <strong>' + str(pointsEarned) 
-                + '</strong> points!</div>', unsafe_allow_html = True)
 
 
 with column_dest:
@@ -56,3 +53,7 @@ def testLoop():
             st.image("https://t4.ftcdn.net/jpg/03/02/23/41/360_F_302234132_DdWLIbq1G7018YUbjIosA3EmOdgAz9t2.jpg")
         elif(x >= 6):
             st.image("https://chemistry.illinois.edu/sites/default/files/2023-04/excellent%20image.jpg")
+
+         
+
+#object label, points, where it belonds
