@@ -4,7 +4,7 @@ import sqlite3
 number = 9
 lol = [1, 2, 8, 4, 5]
 
-db = sqlite3.connect("points.db")
+
 st.markdown('<div style="text-align: center;"><h1>Eco Scanner</h1></div>', unsafe_allow_html = True)
 st.divider()
 
@@ -18,19 +18,9 @@ with column_object:
 
 with column_points:
     st.markdown('<div style="text-align: center;"><h3>Points</h3></div>', unsafe_allow_html=True)
-
-    for x in lol:
-        if(x == 5):
-            break
-
-        st.markdown('<div style="text-align: center;">Congratulations! You Have Earned <strong>' + str(x) 
-                    + '</strong> points!</div>', unsafe_allow_html = True)
-        if(x < 3): 
-            st.image("https://previews.123rf.com/images/fotogestoeber/fotogestoeber1510/fotogestoeber151000078/47425532-many-thumbs-up-to-nice-job.jpg")
-        elif(x >= 3 and x < 6):
-            st.image("https://t4.ftcdn.net/jpg/03/02/23/41/360_F_302234132_DdWLIbq1G7018YUbjIosA3EmOdgAz9t2.jpg")
-        elif(x >= 6):
-            st.image("https://chemistry.illinois.edu/sites/default/files/2023-04/excellent%20image.jpg")
+    pointsEarned = 5
+    st.markdown('<div style="text-align: center;">Congratulations! You Have Earned <strong>' + str(pointsEarned) 
+                + '</strong> points!</div>', unsafe_allow_html = True)
 
 
 with column_dest:
@@ -51,6 +41,18 @@ with column_dest:
     #     elif(object == Organic):
     #         st.image("https://m.media-amazon.com/images/I/71yEJOuk-pL.jpg")
     #         st.markdown("COMPOST BIN")
-         
 
 #object label, points, where it belonds
+
+
+def testLoop():
+    for x in lol:
+        if(x == 5):
+            break
+
+        if(x < 3): 
+            st.image("https://previews.123rf.com/images/fotogestoeber/fotogestoeber1510/fotogestoeber151000078/47425532-many-thumbs-up-to-nice-job.jpg")
+        elif(x >= 3 and x < 6):
+            st.image("https://t4.ftcdn.net/jpg/03/02/23/41/360_F_302234132_DdWLIbq1G7018YUbjIosA3EmOdgAz9t2.jpg")
+        elif(x >= 6):
+            st.image("https://chemistry.illinois.edu/sites/default/files/2023-04/excellent%20image.jpg")
