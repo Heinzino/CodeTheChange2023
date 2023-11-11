@@ -1,14 +1,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Text } from 'react-native';
-
+import { View,Text } from 'react-native';
+import Header from '../components/Header';
 // Home screen component
 const CameraPage = () => {
   return (
+    <View>
+      <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
       Camera
-    </Text>
+      </Text>
+    </View>
+
   );
 };
 
