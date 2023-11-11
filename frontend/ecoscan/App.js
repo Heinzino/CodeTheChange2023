@@ -20,12 +20,10 @@ const App = () => {
   if (!isLoggedin) {
     return <Login />;
   }
-
   // Main app here
   return(
     <NavigationContainer>
       <Tabs/>
-      <Login/>
     </NavigationContainer>
   );
 };
