@@ -116,8 +116,23 @@ with column_dest:
 st.divider()
 
 # Pie chart
-labels_and_size = {'Refundables': 15, 'Compost': 30, 'Recycling': 45, 'Landfill': 10}
-explode = (0, 0, 0.1, 0) 
+max_value = 0
+explode_index = 0
+count = 0
+labels_and_size = {'Refundables': 15, 'Compost': 30, 'Recycling': 20, 'Landfill': 10}
+
+#Finding max value and its index for exploding pie chart
+for x in labels_and_size.values():
+  if(x >= max_value):
+    max_value = x
+    explode_index = count
+  count += 1  
+
+#Initializing Explode List
+explode = [0, 0, 0, 0]
+
+#Explodes Biggest Value on Pie Chart
+explode[explode_index] = 0.1
 
 fig1, ax1 = plt.subplots(facecolor='none')
 
