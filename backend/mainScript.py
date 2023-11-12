@@ -4,27 +4,93 @@ import matplotlib.pyplot as plt
 #Forcing page appearance to be wide
 st.set_page_config(layout='wide')
 
-#Background using A Green-Black gradient wallpaper picture
-page_bg_img = """
-<style>
-    .stApp {
-        background-image: url("https://shorturl.at/dkHT1");
-        background-size: 100% 200%;
-        background-position: top left;
-        background-repeat: no-repeat;
-        background-attachment: local;
-        height: 100vh; 
-    }
+lol = 3
 
-    h1 {
-        margin-top:-90px;
-    }
+#Background wallpaper picture and sizing of page
+if(lol == 1): #Recycling
+    page_bg_img = """
+    <style>
+        .stApp {
+            background-image: url("https://shorturl.at/dkHT1");
+            background-size: 100% 200%;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-attachment: local;
+            height: 100vh; 
+        }
 
-    h3 {
-        margin-top:-30px;
-    }
-</style>
-"""
+        h1 {
+            margin-top:-90px;
+        }
+
+        h3 {
+            margin-top:-30px;
+        }
+    </style>
+    """
+elif(lol == 2): #Landfill
+    page_bg_img = """
+    <style>
+        .stApp {
+            background-image: url("https://i.pinimg.com/originals/88/25/f8/8825f874a0476ae10d78109a2ff07e9e.jpg");
+            background-size: 100% 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-attachment: local;
+            height: 100vh; 
+        }
+
+        h1 {
+            margin-top:-90px;
+        }
+
+        h3 {
+            margin-top:-30px;
+        }
+    </style>
+    """
+elif(lol == 3): #Refundables
+    page_bg_img = """
+    <style>
+        .stApp {
+            background-image: url("https://shorturl.at/ais25");
+            background-size: 100% 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-attachment: local;
+            height: 100vh; 
+        }
+
+        h1 {
+            margin-top:-90px;
+        }
+
+        h3 {
+            margin-top:-30px;
+        }
+    </style>
+    """    
+elif(lol == 4): #Compost
+    page_bg_img = """
+    <style>
+        .stApp {
+            background-image: url("https://shorturl.at/eOUX0");
+            background-size: 100% 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-attachment: local;
+            height: 100vh; 
+        }
+
+        h1 {
+            margin-top:-90px;
+        }
+
+        h3 {
+            margin-top:-30px;
+        }
+    </style>
+    """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
@@ -50,14 +116,13 @@ with column_dest:
 st.divider()
 
 # Pie chart
-labels = 'Recycling', 'Compost', 'Refundables', 'Landfill'
-sizes = [15, 30, 45, 10]
+labels_and_size = {'Refundables': 15, 'Compost': 30, 'Recycling': 45, 'Landfill': 10}
 explode = (0, 0, 0.1, 0) 
 
 fig1, ax1 = plt.subplots(facecolor='none')
 
 patches, texts, pcts = ax1.pie(
-    sizes, labels=labels, autopct='%.1f%%',
+    labels_and_size.values(), labels=labels_and_size.keys(), autopct='%.1f%%',
     wedgeprops={'linewidth': 3.0},
     textprops={'size': 'x-large'},
     explode=explode,
