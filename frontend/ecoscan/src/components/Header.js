@@ -5,12 +5,12 @@ import tw from 'twrnc';
 
 const Header = ({name, logo}) =>{
   return(
-    <View style={tw`flex-row justify-between items-center p-4 bg-blue-500`}>
+    <View style={tw`flex-row justify-between items-center p-4 pt-13 bg-black`}>
         <View style={tw`flex-1`}>
             <Text style={tw`text-white text-lg`}>{name}</Text>
         </View>
         <View style={tw`ml-4`}>
-            <Image source={{ uri: "Ecosan" }} alt="asdf" style={tw`w-10 h-10 rounded-full`} />
+            {/* <Image source={{ uri: "Ecosan" }} alt="asdf" style={tw`w-10 h-10 rounded-full`} /> */}
         </View>
     </View>
 
