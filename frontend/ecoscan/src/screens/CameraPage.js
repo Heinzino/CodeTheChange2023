@@ -7,8 +7,8 @@ import Header from '../components/Header';
 const CameraPage = () => {
   return (
     <View>
-      <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
-    <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
+      <Header name="Jun Chao" appLogo="Logo"/>
+      <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
       Camera
       </Text>
     </View>
