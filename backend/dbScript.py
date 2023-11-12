@@ -18,3 +18,5 @@ def newUser(name : str, UCID: str, hashed_password: str, db: Session = Depends(g
 
 
 
+
+
