@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 #Forcing page appearance to be wide
 st.set_page_config(layout='wide')
 
-lol = 1
+test_Values = 1
 
 #Background wallpaper picture and sizing of page
-if(lol == 1): #Recycling
+if(test_Values == 1): #Recycling
     page_bg_img = """
     <style>
         .stApp {
@@ -28,12 +28,12 @@ if(lol == 1): #Recycling
         }
     </style>
     """
-elif(lol == 2): #Landfill
+elif(test_Values == 2): #Landfill
     page_bg_img = """
     <style>
         .stApp {
             background-image: url("https://i.pinimg.com/originals/88/25/f8/8825f874a0476ae10d78109a2ff07e9e.jpg");
-            background-size: 100% 100%;
+            background-size: 100% 200%;
             background-position: top left;
             background-repeat: no-repeat;
             background-attachment: local;
@@ -49,12 +49,12 @@ elif(lol == 2): #Landfill
         }
     </style>
     """
-elif(lol == 3): #Refundables
+elif(test_Values == 3): #Refundables
     page_bg_img = """
     <style>
         .stApp {
             background-image: url("https://shorturl.at/ais25");
-            background-size: 100% 100%;
+            background-size: 100% 200%;
             background-position: top left;
             background-repeat: no-repeat;
             background-attachment: local;
@@ -70,12 +70,12 @@ elif(lol == 3): #Refundables
         }
     </style>
     """    
-elif(lol == 4): #Compost
+elif(test_Values == 4): #Compost
     page_bg_img = """
     <style>
         .stApp {
             background-image: url("https://shorturl.at/eOUX0");
-            background-size: 100% 100%;
+            background-size: 100% 200%;
             background-position: top left;
             background-repeat: no-repeat;
             background-attachment: local;
@@ -103,15 +103,17 @@ column_object, column_points, column_dest = st.columns(3)
 
 with column_object:
     st.markdown('<div style="text-align: center;"><h3>Object</h3></div>', unsafe_allow_html=True)
-    st.markdown('<div style="text-align: center;">The Object You Scanned Is</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center;">The Object You Scanned Is Bottle</div>', unsafe_allow_html=True)
 
 with column_points:
     st.markdown('<div style="text-align: center;"><h3>Points</h3></div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center;">50 pts</div>', unsafe_allow_html=True)
+
 
 
 with column_dest:
     st.markdown('<div style="text-align: center;"><h3>Dispose</h3></div>', unsafe_allow_html=True)
-    st.markdown('<div style="text-align: center;">Well Done! This Object Should Be Thrown In The</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center;">Well Done! This Object Should Be Thrown In The Bottle Recycling</div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -120,6 +122,8 @@ max_value = 0
 explode_index = 0
 count = 0
 filtered_labels_and_size = {}
+
+#Initializing Explode List
 explode = []
 
 labels_and_size = {'Refundables': 40, 'Compost': 25, 'Recycling': 15, 'Landfill': 20}
@@ -134,8 +138,6 @@ for key, value in labels_and_size.items():
         max_value = value
         explode_index = count
     count += 1
-
-#Initializing Explode List
 
 #Explodes Biggest Value on Pie Chart
 explode[explode_index] = 0.1
