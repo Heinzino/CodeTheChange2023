@@ -1,30 +1,33 @@
 from fastapi import FastAPI, HTTPException, Depends
-from typing import Annotated, List
+from typing import List
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from database import SessionLocal, engine
-import uvicorn
 import models
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 origins = [
-    'http://localhost:3000'
+    "http://localhost:3000",  # Add your React Native app's origin
+    "exp://127.0.0.1:19000",  # Expo Go development client
+    "exp://localhost:19000",  # Expo Go development client
+    "exp://10.13.182.154:8081",  # Replace with your Expo Go app's ID
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = origins,
-    allow_credentials = True,
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*']
 )
 
 class PointsBase(BaseModel):
-    name:str
-    UCID:str
-    hashed_password:str
+    name: str
+    UCID: str
+    hashed_password: str
     points: int
 
 class PointsModel(PointsBase):
@@ -33,7 +36,6 @@ class PointsModel(PointsBase):
     class Config:
         from_attributes = True
 
-
 def get_db():
     db = SessionLocal()
     try:
@@ -41,26 +43,32 @@ def get_db():
     finally:
         db.close()
 
+db_dependency = Depends(get_db)
 
-db_dependency = Annotated[Session, Depends(get_db)]
 models.Base.metadata.create_all(bind=engine)
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello, FastAPI!"}
+def sqlalchemy_model_to_dict(model):
+    return {column.name: getattr(model, column.name) for column in model.__table__.columns}
 
 @app.post("/points/", response_model=PointsModel)
-async def create_point(point: PointsBase, db: db_dependency):
-    db_point = models.Points(**point.model_dump())
+async def create_point(point: PointsBase, db: Session = db_dependency):
+    point_dict = point.dict()
+    db_point = models.Points(**point_dict)
     db.add(db_point)
     db.commit()
     db.refresh(db_point)
-    return db_point
+    # Convert the SQLAlchemy model instance to a dictionary
+    db_point_dict = sqlalchemy_model_to_dict(db_point)
+    return db_point_dict
 
-@app.get("/points/",response_model=List[PointsModel])
-async def read_points(db: db_dependency, skip: int = 0, limit: int = 100):
-    points = db.query(models.Points).offset(skip).limit(limit).all()
-    return points
+@app.get("/points/by-min-score/", response_model=List[PointsModel])
+async def read_points_by_min_score(db: Session = db_dependency, min_score: int = 0):
+    points = db.query(models.Points).filter(models.Points.points >= min_score).all()
+    return [sqlalchemy_model_to_dict(point) for point in points]
 
-#When you run with uvicorn main:app --reload
-#Make sure to append /docs to url to get that nice screen to see all the stuff
+@app.get("/points/top-ten/", response_model=List[PointsModel])
+async def read_top_ten_points(db: Session = db_dependency):
+    top_points = db.query(models.Points).order_by(models.Points.points.desc()).limit(10).all()
+    return [sqlalchemy_model_to_dict(point) for point in top_points]
+
+

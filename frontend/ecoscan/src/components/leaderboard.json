@@ -1,0 +1,11 @@
+[
+    {"name": "Ethan", "UCID": "30942823", "hashed_password": "894uidjfafkdj8", "points": 60, "id": 2},
+    {"name": "Olivia", "UCID": "30942823", "hashed_password": "894uidjfafkdj8", "points": 60, "id": 1},
+    {"name": "Zach", "UCID": "30172354", "hashed_password": "1233", "points": 13, "id": 5},
+    {"name": "Zach", "UCID": "30172354", "hashed_password": "1233", "points": 13, "id": 4},
+    {"name": "Zach", "UCID": "30172354", "hashed_password": "1233", "points": 13, "id": 3},
+    {"name": "Jim", "UCID": "30172353", "hashed_password": "stasdfg", "points": 12, "id": 8},
+    {"name": "Jim", "UCID": "30172353", "hashed_password": "stasdfg", "points": 12, "id": 7},
+    {"name": "Jun", "UCID": "31231", "hashed_password": "asdfsa", "points": 12, "id": 6},
+    {"name": "Aiden", "UCID": "10123", "hashed_password": "string", "points": 3, "id": 9}
+]
