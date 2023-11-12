@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 #Forcing page appearance to be wide
 st.set_page_config(layout='wide')
 
-lol = 3
+lol = 1
 
 #Background wallpaper picture and sizing of page
 if(lol == 1): #Recycling
@@ -119,25 +119,32 @@ st.divider()
 max_value = 0
 explode_index = 0
 count = 0
-labels_and_size = {'Refundables': 15, 'Compost': 30, 'Recycling': 20, 'Landfill': 10}
+filtered_labels_and_size = {}
+explode = []
 
-#Finding max value and its index for exploding pie chart
-for x in labels_and_size.values():
-  if(x >= max_value):
-    max_value = x
-    explode_index = count
-  count += 1  
+labels_and_size = {'Refundables': 40, 'Compost': 25, 'Recycling': 15, 'Landfill': 20}
+
+for key, value in labels_and_size.items():
+    # Skip items with a value of 0
+    if value != 0:
+        filtered_labels_and_size[key] = value
+        explode.append(0)
+
+    if value >= max_value:
+        max_value = value
+        explode_index = count
+    count += 1
 
 #Initializing Explode List
-explode = [0, 0, 0, 0]
 
 #Explodes Biggest Value on Pie Chart
 explode[explode_index] = 0.1
+explode = tuple(explode)
 
 fig1, ax1 = plt.subplots(facecolor='none')
 
 patches, texts, pcts = ax1.pie(
-    labels_and_size.values(), labels=labels_and_size.keys(), autopct='%.1f%%',
+    filtered_labels_and_size.values(), labels=filtered_labels_and_size.keys(), autopct='%.1f%%',
     wedgeprops={'linewidth': 3.0},
     textprops={'size': 'x-large'},
     explode=explode,
