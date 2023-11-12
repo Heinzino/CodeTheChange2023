@@ -7,35 +7,36 @@ const ProgressBar = ({ points }) => {
       <View style={styles.container}>
         <Progress.Bar 
           progress={points} 
-          width={350} 
+          width={300} 
           height={40}
           color="#4CAF50" // Vibrant green for contrast
           unfilledColor="#333" // Dark color for the unfilled part
           borderWidth={0}
           borderRadius={10}
         />
-        <Text style={styles.text}>Points: {Math.round(points * 100)}</Text>
+        <Text style={styles.text}> {Math.round(points * 100)}% </Text>
       </View>
     );
 }
 
 const styles = StyleSheet.create({
+  text: {
+    color: '#FFF', // White color for text
+    fontSize: 20, // Slightly larger for better readability
+    marginLeft: 20,
+    fontWeight: 'bold', // Bold for a bit more impact
+    fontFamily: 'Helvetica Neue', // A clean, modern font. You can also use 'Arial' or 'sans-serif' as alternatives
+  },
   container: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
+    paddingTop: 20,
     marginTop: 5,
     width: '100%', // Ensure the container takes the full width
 
   },
-  text: {
-    color: '#FFF', // White color for text
-    fontSize: 18, // Slightly larger for better readability
-    marginTop: 20,
-    fontWeight: 'bold', // Bold for a bit more impact
-    fontFamily: 'Helvetica Neue', // A clean, modern font. You can also use 'Arial' or 'sans-serif' as alternatives
-  }
 });
 
 export default ProgressBar;

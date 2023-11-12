@@ -5,7 +5,7 @@ import { Text, Image } from 'react-native-elements';
 const Header = ({ name, logo }) => {
   return(
     <View style={styles.container}>
-        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.title}>Welome, {name}</Text>
         {logo && <Image source={{ uri: logo }} style={styles.logo} />}
     </View>
   );
@@ -17,18 +17,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    paddingTop: 52,
-    backgroundColor: '#000', // Dark background
+    paddingTop: 80,
+    backgroundColor: '#435585', // A dark background color similar to the image
   },
   title: {
-    color: '#4CAF50', // Bright blue for contrast
-    fontSize: 20, // Adjust font size as needed
-    fontWeight: 'bold',
+    color: '#200000', // A vibrant green color for the text
+    fontSize: 20, // Increased font size for better visibility
+    fontWeight: '700', // Bold font weight
+    fontFamily: 'Arial', // Choose a font that's close to the app's style, ensure it's available or add it as a custom font
   },
   logo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20, // Circular image
+    width: 50, // Slightly larger for better visibility
+    height: 50, // Slightly larger to match width
+    borderRadius: 25, // Circular image
   }
 });
 

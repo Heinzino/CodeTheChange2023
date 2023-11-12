@@ -13,8 +13,10 @@ const HomePage = () => {
     
     <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
     {/*<Stats points="12"/>*/}
+    <Text style={{ fontSize: 22, color:'#FFF', fontWeight:'bold', textAlign: 'left', marginTop: 10, marginLeft: 10, }}>Milestone </Text>
     <ProgressBar points="0.9"/>
-    <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>Home </Text>
+    <Text style={{ fontSize: 22, color:'#FFF', fontWeight:'bold', textAlign: 'left', marginTop: 10, marginLeft: 10, }}>Stats </Text>
+    <Stats />
     </View>
   );
 };
