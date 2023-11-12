@@ -28,7 +28,7 @@ const RewardsPage = () => {
 
   return (
     <View>
-    <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
+    <Header name="Jun Chao" appLogo="Logo"/>
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>
       Rewards
     </Text>
