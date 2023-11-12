@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer,DarkTheme} from "@react-navigation/native";
 import Tabs from './src/navigation/tabs';
 import Login from './src/screens/LoginPage';
+import api from './api'
 
 const App = () => {
 
