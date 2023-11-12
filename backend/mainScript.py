@@ -1,19 +1,43 @@
 import streamlit as st
-import sqlite3 
+import matplotlib.pyplot as plt
 
-number = 9
-lol = [1, 2, 8, 4, 5]
+#Forcing page appearance to be wide
+st.set_page_config(layout='wide')
 
-st.markdown('<div style="text-align: center;"><h1>Eco Scanner</h1></div>', unsafe_allow_html = True)
+#Background using A Green-Black gradient wallpaper picture
+page_bg_img = """
+<style>
+    .stApp {
+        background-image: url("https://shorturl.at/dkHT1");
+        background-size: 100% 200%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        height: 100vh; 
+    }
+
+    h1 {
+        margin-top:-90px;
+    }
+
+    h3 {
+        margin-top:-30px;
+    }
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+#Title of the App
+st.markdown('<div style="text-align: center;"><h1>Eco Scanner</h1></div>', unsafe_allow_html=True)
 st.divider()
 
+#Columns
 column_object, column_points, column_dest = st.columns(3)
 
 with column_object:
     st.markdown('<div style="text-align: center;"><h3>Object</h3></div>', unsafe_allow_html=True)
     st.markdown('<div style="text-align: center;">The Object You Scanned Is</div>', unsafe_allow_html=True)
-    #This line will display the image of the item that was scanned
-    #st.image("")
 
 with column_points:
     st.markdown('<div style="text-align: center;"><h3>Points</h3></div>', unsafe_allow_html=True)
@@ -22,38 +46,58 @@ with column_points:
 with column_dest:
     st.markdown('<div style="text-align: center;"><h3>Dispose</h3></div>', unsafe_allow_html=True)
     st.markdown('<div style="text-align: center;">Well Done! This Object Should Be Thrown In The</div>', unsafe_allow_html=True)
-    #Using the object label, loop to figure out where this object belongs in:
-    #Loop ends when the object detected is dropped into the bin and points will be rewarded accordingly
-    # While(!object_is_dropped):
-    #     if(object == Paper):
-    #         st.image("https://dbdzm869oupei.cloudfront.net/img/sticker/preview/13212.png")
-    #         st.markdown("RECYCLE BIN")
-    #     elif(object == Trash):
-    #         st.image("https://i.etsystatic.com/15517402/r/il/e64a5b/3310297172/il_794xN.3310297172_k16t.jpg")
-    #         st.markdown("TRASH BIN")
-    #     elif(object == Refundable):
-    #         st.image("https://images-na.ssl-images-amazon.com/images/I/61bGpR7n4cL._AC_UL600_SR600,600_.jpg")
-    #         st.markdown("REFUNDABLES BIN")
-    #     elif(object == Organic):
-    #         st.image("https://m.media-amazon.com/images/I/71yEJOuk-pL.jpg")
-    #         st.markdown("COMPOST BIN")
 
-#object label, points, where it belonds
+st.divider()
+
+# Pie chart
+labels = 'Recycling', 'Compost', 'Refundables', 'Landfill'
+sizes = [15, 30, 45, 10]
+explode = (0, 0, 0.1, 0) 
+
+fig1, ax1 = plt.subplots(facecolor='none')
+
+patches, texts, pcts = ax1.pie(
+    sizes, labels=labels, autopct='%.1f%%',
+    wedgeprops={'linewidth': 3.0},
+    textprops={'size': 'x-large'},
+    explode=explode,
+    shadow=True,
+    startangle=90)
+
+for i, patch in enumerate(patches):
+  texts[i].set_color(patch.get_facecolor())
+
+plt.setp(pcts, color='white')
+plt.setp(texts, fontweight=600)
+ax1.set_title("Item(s) Disposed", color='White', fontsize=18)
+plt.tight_layout()
+
+# Equal aspect ratio ensures that pie is drawn as a circle.
+ax1.axis('equal')  
+
+fig1.patch.set_facecolor('none')
+ax1.set_facecolor('none')
+
+#Columns for Camera and pie to separate from the 3 other columns
+column_pie, column_camera = st.columns(2)
+
+with column_pie:
+    st.pyplot(fig1)
+
+with column_camera:
+    st.camera_input("Camera", label_visibility='hidden', key="capture_image")
+
+    # Uses CSS to hide the button that takes a picture cause we don't need it 
+    st.markdown(
+        """
+        <style>
+            #root div[data-testid="stCameraInput"] button {
+                display: none;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 
-def testLoop():
-    for x in lol:
-        if(x == 5):
-            break
 
-        if(x < 3): 
-            st.image("https://previews.123rf.com/images/fotogestoeber/fotogestoeber1510/fotogestoeber151000078/47425532-many-thumbs-up-to-nice-job.jpg")
-        elif(x >= 3 and x < 6):
-            st.image("https://t4.ftcdn.net/jpg/03/02/23/41/360_F_302234132_DdWLIbq1G7018YUbjIosA3EmOdgAz9t2.jpg")
-        elif(x >= 6):
-            st.image("https://chemistry.illinois.edu/sites/default/files/2023-04/excellent%20image.jpg")
-
-         
-
-#object label, points, where it belonds
-st.camera_input("Capture Image")
