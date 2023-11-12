@@ -12,7 +12,7 @@ const HomePage = () => {
     <View>
     
     <Header name="Jun Chao" imageUrl="../assets/newpfp.jpg"/>
-    <Stats points="12"/>
+    {/*<Stats points="12"/>*/}
     <ProgressBar points="0.9"/>
     <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>Home </Text>
     </View>
