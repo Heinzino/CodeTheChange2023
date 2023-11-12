@@ -7,7 +7,7 @@ const Stats = ({points}) =>{
   return(
     <View style={tw`flex-row justify-between items-center p-4 bg-red-500`}>
         <View style={tw`flex-1`}>
-            <Text style={tw`text-white text-lg`}>You have this many {points}!</Text>
+            <Text style={tw`text-white text-lg`}>You have {points} points!</Text>
         </View>
     </View>
   );
