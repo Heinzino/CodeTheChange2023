@@ -16,7 +16,7 @@ Our cutting-edge system integrates bins equipped with Raspberry Pi-powered camer
 For real-time data display, we've incorporated a monitor next to the bin. This display, powered by StreamLit and Matplotlib, showcases live camera footage and pertinent data. The student's points, along with all data, are securely stored in an SQLite database. We've employed SQLAlchemy as the ORM and FastAPI to seamlessly retrieve data within the app, ensuring a streamlined and efficient user experience.
 
 ## Challenges we ran into 😱
-- Accurate detection with Google Vision API, we had to utilize ChatGPT queries to accurately identify the proper object.
+- Accurate detection with Google Vision API, we had to utilize GPT queries to accurately identify the proper object.
 - Properly formatting the Streamlit monitor and connecting with the camera.
 - API calls between React Native.
 
