@@ -16,19 +16,19 @@ Our cutting-edge system integrates bins equipped with Raspberry Pi-powered camer
 For real-time data display, we've incorporated a monitor next to the bin. This display, powered by StreamLit and Matplotlib, showcases live camera footage and pertinent data. The student's points, along with all data, are securely stored in an SQLite database. We've employed SQLAlchemy as the ORM and FastAPI to seamlessly retrieve data within the app, ensuring a streamlined and efficient user experience.
 
 ## Challenges we ran into 😱
-- Accurate detection with Google Vision API, we had to utilize GPT queries to accurately identify the proper object.
+- Accurate detection with Google Vision API, we had to utilize GPT queries to accurately identify ambiguous object.
 - Properly formatting the Streamlit monitor and connecting with the camera.
-- API calls between React Native.
+- API calls between React Native and FastAPI.
 
 ## Accomplishments that we're proud of 😎
-- Built a functional ecosystem with a React Native mobile application, with a FastAPI backend and a computer vision model that uses webcam and voice output to identify garbage and interact with the user.
+- Built a functional ecosystem with a mobile application, with a FastAPI backend and a computer vision model that uses webcam and voice output to interact with the user.
 
 ## What we learned 📚
-- Libraries for FastAPI, SQLAlchemy.
-- Component and styling for React Native and Tailwind CSS.
-- Computer Vision, integration with AI and LLMs. Using GPT API.
+- Libraries for backend development : FastAPI, SQLAlchemy.
+- Component and styling for React Native using React Native Elements and Tailwind CSS.
+- Computer Vision, integration of LLMs into our computer vision workflow using GPT API.
 
 ## What's next for EcoScan 🔜
 - Integrate the marketplace with more environmentally sustainable businesses.
-- Finetune the styling of the app.
+- Overhaul the styling of the app.
 - Add QR Codes with vendors to promote bringing in Tupperware and reusing culinary utensils.
