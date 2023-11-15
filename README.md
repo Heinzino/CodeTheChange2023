@@ -24,9 +24,8 @@ For real-time data display, we've incorporated a monitor next to the bin. This d
 - Built a functional ecosystem with a mobile application, with a FastAPI backend and a computer vision model that uses webcam and voice output to interact with the user.
 
 ## What we learned 📚
-- Libraries for backend development : FastAPI, SQLAlchemy.
-- Component and styling for React Native using React Native Elements and Tailwind CSS.
-- Computer Vision, integration of LLMs into our computer vision workflow using GPT API.
+- Mobile Dev Tools :React Native, FastAPI, SQLite and SQLAlchemy, React Native Elements and Tailwind CSS.
+- Computer Vision and AI Tools: Google Vision AI, OpenAI, Streamlit.
 
 ## What's next for EcoScan 🔜
 - Integrate the marketplace with more environmentally sustainable businesses.
